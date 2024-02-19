@@ -1,0 +1,14 @@
+name: Firebase Auth CI Pipeline
+run-name: ${{ github.actor }} is running
+on: [push]
+jobs:
+  Write-Job-Information:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Job triggered by ${{ github.event_name }} event."
+      - run: echo "Job running on ${{ runner.os }} server by Github!"
+      - run: echo "The name of the branch is ${{ github.ref }}, repository ${{ github.repository }}"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "This job's status is ${{ job.status }}."
